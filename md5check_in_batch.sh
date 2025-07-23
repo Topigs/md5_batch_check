@@ -14,8 +14,8 @@ ls ${files_dir}/*${file_ext} | xargs -n1 -P$(nproc) md5sum >| $tmp_file
 
 declare -A md5
 declare -A ref
-while read hash fp; do md5[$(basename $fp)]=$hash; done < $tmp_file
-while read hash fp; do ref[$(basename $fp)]=$hash; done < $hash_ref
+while read hash_value fp; do md5[$(basename $fp)]=$hash_value; done < $tmp_file
+while read hash_value fp; do ref[$(basename $fp)]=$hash_value; done < $hash_ref
 
 dash_line="-----------------------------------------------"
 for fn in ${!ref[@]}; do
