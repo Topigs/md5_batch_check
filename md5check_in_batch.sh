@@ -17,7 +17,7 @@ declare -A ref
 while read hash_value fp; do md5[$(basename $fp)]=$hash_value; done < $tmp_file
 while read hash_value fp; do ref[$(basename $fp)]=$hash_value; done < $hash_ref
 
-dash_line="-----------------------------------------------"
+dash_line="-------------------------------"
 for fn in ${!ref[@]}; do
     if [[ ${md5[$fn]} == ${ref[$fn]} ]]; then stat=OK; else stat=FAIL; fi
     printf "%*s " 40 $fn
